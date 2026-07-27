@@ -1,4 +1,5 @@
 function displayWeather(response) {
+    console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#time").innerHTML = formatDate(response.data.time);
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -85,9 +86,20 @@ searchForm.addEventListener("submit", handleSubmit);
 function formatDate(timestamp) {
   let date = new Date(timestamp * 1000);
 
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
 
-  return `${days[date.getDay()]} ${date.getHours()}:${date.getMinutes()}`;
+  let hours = date.getHours();
+  let minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${days[date.getDay()]} ${hours}:${minutes}`;
 }
 
 searchCity("Rustenburg");
