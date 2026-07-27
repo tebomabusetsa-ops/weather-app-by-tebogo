@@ -33,58 +33,27 @@
                     <h1 id="city">Rustenburg</h1>
 
                     <p>
-                        Tuesday 13:00, rainy day
+                    <span id="time"></span>,
+                    <span id="description"></span>
                         <br />
                         Humidity:
-                        <strong>100%</strong>,
+                        <strong><span id="humidity">100</span>%</strong>,
                         Wind:
-                        <strong>42km/h</strong>
+                        <strong><span id="wind">42</span> km/h</strong>
                     </p>
                 </div>
 
                 <div class="weather-temperature">
-                    <span class="weather-icon">🌧️</span>
+                    <span class="weather-icon" id="icon">🌧️</span>
 
-                    <span class="temperature">22</span>
+                    <span class="temperature" id="temperature">22</span>
 
                     <span class="unit">°C</span>
                 </div>
 
             </div>
 
-            <div class="forecast">
-
-                <div class="forecast-day">
-                    <div>Mon</div>
-                    <div>🌧️</div>
-                    <div><strong>16°C</strong> - 17°C</div>
-                </div>
-
-                <div class="forecast-day">
-                    <div>Tue</div>
-                    <div>☀️</div>
-                    <div><strong>24°C</strong> - 25°C</div>
-                </div>
-
-                <div class="forecast-day">
-                    <div>Wed</div>
-                    <div>⛈️</div>
-                    <div><strong>14°C</strong> - 15°C</div>
-                </div>
-
-                <div class="forecast-day">
-                    <div>Thu</div>
-                    <div>🌤️</div>
-                    <div><strong>22°C</strong> - 23°C</div>
-                </div>
-
-                <div class="forecast-day">
-                    <div>Fri</div>
-                    <div>🌦️</div>
-                    <div><strong>19°C</strong> - 19°C</div>
-                </div>
-
-            </div>
+        <div class="forecast" id="forecast"></div>
 
         </main>
 
@@ -104,9 +73,8 @@
         </footer>
 
     </div>
-
-    <script src="index.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="index.js"></script>
 </body>
 
 </html>
