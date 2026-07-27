@@ -11,7 +11,7 @@ function displayWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#icon").innerHTML = response.data.condition.icon;
+  document.querySelector("#icon").src = response.data.condition.icon_url;
 
   getForecast(response.data.coordinates);
   
@@ -22,7 +22,22 @@ function searchCity(city) {
 
   axios.get(apiUrl).then(displayWeather);
 }
+function getWeatherEmoji(condition) {
+  if (condition.includes("clear")) {
+    return "☀️";
+  }
+  if (condition.includes("rain")) {
+    return "🌧️";
+  }
+  if (condition.includes("cloud")) {
+    return "☁️";
+  }
+  if (condition.includes("storm")) {
+    return "⛈️";
+  }
 
+  return "🌤️";
+}
 function displayForecast(response) {
   let forecastHTML = "";
 
@@ -31,7 +46,7 @@ function displayForecast(response) {
       forecastHTML += `
         <div class="forecast-day">
           <div>${formatDay(day.time)}</div>
-          <div>${day.condition.description}</div>
+          <div>${getWeatherEmoji(day.condition.icon)}</div>
           <div>
             <strong>${Math.round(day.temperature.maximum)}°</strong>
             ${Math.round(day.temperature.minimum)}°
